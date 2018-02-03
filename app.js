@@ -37,7 +37,7 @@ app.post('/api', function (req, res) {
      //To block Images
     await page.setRequestInterception(true);
     page.on('request', request => {
-          if (request.resourceType() === 'image')
+          if (request.resourceType() === 'image' || request.resourceType() === 'media' || request.resourceType() === 'stylesheet')
             request.abort();
           else
             request.continue();
@@ -58,11 +58,10 @@ app.post('/api', function (req, res) {
 
       
       await page.click('#'+ credentialArray[0]);
-      await page.keyboard.type(email , {delay: 200});
+      await page.keyboard.type(email , {delay: 22});
       await page.click('#'+ credentialArray[1]);
-      await page.keyboard.type(password);
+      await page.keyboard.type(password, {delay: 12});
       await page.click('body');
-      await page.click(submitButtonSel);
       await page.click(submitButtonSel);
       await page.waitForNavigation();
            
