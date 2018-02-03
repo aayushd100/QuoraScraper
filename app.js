@@ -31,7 +31,7 @@ app.post('/api', function (req, res) {
   const email = "konidapuv@0mixmail.info"
   const password = "qwerty123"
   
-  puppeteer.launch({headless: false}).then(async browser => {
+  puppeteer.launch().then(async browser => {
     const page = await browser.newPage();
 
      //To block Images
