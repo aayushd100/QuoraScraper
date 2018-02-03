@@ -1,0 +1,13 @@
+extends layout
+block content
+	table.table.table-hover.table-bordered.thead-dark
+		thead
+			tr
+			th(scope='col') S. No
+			th(scope='col') Follower
+		tbody
+			for user in data
+				tr
+				th(scope='row')	#{user.id}.
+				td
+					a(href='#{user.url}')	#{user.name}
